@@ -11,7 +11,10 @@ const languages_available = [
     'da',
     'nl',
     'it',
-    'no'
+    'no',
+    'zh-cn',
+    'zh-tw',
+    'ko'
 ]
 function languageData() {
     var language = 'en'; // the default language
@@ -20,12 +23,20 @@ function languageData() {
         {
             // Loop through each language to check if it is in the translations list
             for (let i = 0; i < languages.length; i++) {
-                if (languages[i].match(/\-/)) {
+                var this_lang = languages[i].toLowerCase();
+                // production note: if deploying account for all combinations like zh, zh-hk, zh-Hans, etc
+                if (this_lang == 'zh-cn') {
+                    language = 'zh-cn';
+                }
+                else if (this_lang == 'zh-tw') {
+                    language = 'zh-tw';
+                }
+                else if (this_lang.match(/\-/)) {
                     // If there is a dash split the string so we can isolate the language code
-                    var language = languages[i].split('-', 1)[0];
+                    var language = this_lang.split('-', 1)[0];
                     }
                 else {
-                    var language = languages[i];
+                    var language = this_lang;
                 }
                 if (languages_available.includes(language) == true)
                     {
