@@ -1,0 +1,3 @@
+my russian translation file disappeared. as well as my en-ru dictionary and my en-ru back up dictionary
+
+the zh-cn, zh-tw and ko files are incomplete
