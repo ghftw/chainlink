@@ -1,3 +1,10 @@
+date: 6/5/21
+last crawl time June 5th 3pm pst.
+
+all translation files up to date. tested zh-tw and de. everything is working.
+
+
+date: 6/4/21
 my russian translation file disappeared. as well as my en-ru dictionary and my en-ru back up dictionary
 
 the zh-cn, zh-tw and ko files are incomplete
