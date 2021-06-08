@@ -1,20 +1,24 @@
 /* INCLUDE THIS BIT OF JS IN YOUR BASE FILE HEAD ELEMENT */
 const pn = window.location.pathname;
+
 const languages_available = [
-    'en',
+    'ur',
     'de',
     'es',
     'fr',
     'ru',
     'pt',
     'cs',
+    'ko',
+    'zh-tw',
+    'zh-cn',
     'da',
-    'nl',
     'it',
     'no',
-    'zh-cn',
-    'zh-tw',
-    'ko'
+    'bn',
+    'hi',
+    'ar',
+    'nl',
 ]
 function languageData() {
     var language = 'en'; // the default language
@@ -33,10 +37,10 @@ function languageData() {
                 }
                 else if (this_lang.match(/\-/)) {
                     // If there is a dash split the string so we can isolate the language code
-                    var language = this_lang.split('-', 1)[0];
+                    language = this_lang.split('-', 1)[0];
                     }
                 else {
-                    var language = this_lang;
+                    language = this_lang;
                 }
                 if (languages_available.includes(language) == true)
                     {
@@ -56,6 +60,7 @@ function loadLanguage(language_pref, pn) {
         1. COPY THE TRANSLATIONS DIRECTORY WHEREVER YOU HOUSE YOUR JS
         2. REPLACE THE EMPTY STRING IN path_to_js_directory WITH THE JS DIRECTORY PATH
     */
+    // local testing: static/js/chainlink
     let path_to_js_directory = '';
     let requestURL = path_to_js_directory + '/translations/' + language_pref + '.json';
     let request = new XMLHttpRequest();
@@ -83,6 +88,12 @@ function loadLanguage(language_pref, pn) {
                     continue
                 }
                 n ++;
+            }
+            var inputs = document.getElementsByTagName('input');
+            for (i = 0; i < inputs.length; i++){
+                if (translations['input' + i + 'placeholder']){inputs[i].setAttribute('placeholder', translations['input' + i + 'placeholder']);}
+                if (translations['input' + i + 'value']){inputs[i].setAttribute('value', translations['input' + i + 'value']);}
+                if (translations['input' + i + 'data-wait']){inputs[i].setAttribute('data-wait', translations['input' + i + 'data-wait']);}
             }
         }
     }
