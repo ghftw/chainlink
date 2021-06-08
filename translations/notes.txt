@@ -1,3 +1,42 @@
+date: 6/8/21
+last crawl time 6/8/21 11:45 am pst
+
+added urdu, arabic, bengali, hindi
+
+fixed js mdn bug: text nodes as attributes are not being recorded despite the documentation
+
+just have to loop over elements where display text could end up, like input placeholder and value, etc
+
+also, I figured out the end all of translations. I'm writing code to grab chrome and edge translations (testing on gemini.com): run automation browser, map page, grab translation in every language on each browser, map the translations onto dictionaries (node number {some string: its translation).
+
+That's it. That's everything. Take translations. Reverse dictionaries. Apply numbers. Apply vectors. Apply machine learning/reinforcement learning. Universal Translator complete.
+
+that being said, my original api translator is still needed. Google and Msft don't translate every page, e.g. https://chain.link
+
+I'm 99% sure they don't translate that page, but do for subdomains like https://blog.chain.link because of the weglot api.
+
+They seem to conflict and mangle the pages: see https://wework.com
+
+Which means using them guarantees zh and ko but also that your visitors using Chrome will only get English or zh or ko and nothing else like fr or de or hi.
+
+the strange thing is my translator isn't just superior to weglot it's superior to everything. Ideally, the language is loaded based on the language preference. Even Chrome and Edge fail at this sometimes.
+
+But my system will always grab it. Adoption of language preference is broad at this point. 
+
+Plus, Google and Chrome would never conflict, they would just map over whatever strings exist at the time they are called. It's kind of complicated, but I think weglot is changing the dom, so the node numbers are out of order. In that case, Goolge can't map their strings onto the same page. It's too different. So they opt for not translating at all. My code never changes the dom. Google or Edge would work on top of it.
+
+What they knew when they wrote their translator is some clever person might figure out how to take all the translations directly off the page and map them onto the source. They had to conclude it's a worthwhile tradeoff. In other words, it's not a big deal to reverse engineer their translations.
+ 
+But here's the kicker, the utlimate best solution would be for them to give the site owner the translations. Then the site owner could modify them if they like. A copy edit. Then the page loads the translation file that has been copy edited. For most sites who cares. But if you're talking billions or trillions that matters to you.
+
+That's what I've figured out: create a translate file if one doesn't exist, but if one does give it to the site owner. They can copy edit it if they like and load it with some simple js. I'm testing this with gemini.com. Just gonna do the main page. But in the end, the site owner ends up with a choice they didn't have before.
+
+Legally speaking, who does the translation file belong to? My guess is the site owner. They wrote the content, published it. Not by a lot, but I think by a small margin a court would rule in their favor. The opposite of saying Google can publish links and snippets.
+
+Anyway, translation project 90% complete. Starting work on an oracle node.
+
+Finally, I retraced the ru file errors. Accidentally rewrote the dictionary object as blank in a try/except. Didn't catch it and backed it up by mistake. I had mutliple backups so not a big deal. Just a tiny error on my part.
+
 date: 6/5/21
 last crawl time June 5th 3pm pst.
 
