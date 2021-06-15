@@ -1,4 +1,9 @@
-date: 6/8/21
+last crawl time 6/14/21 6 pm pst
+
+added japanese and indonesian.
+proved out my hypothesis for reverse engineering browser based translations.
+harder than it seems as google placed a few hurdles in the way; font tags as a weapon. kind of funny.
+
 last crawl time 6/8/21 11:45 am pst
 
 added urdu, arabic, bengali, hindi
@@ -21,12 +26,12 @@ Which means using them guarantees zh and ko but also that your visitors using Ch
 
 the strange thing is my translator isn't just superior to weglot it's superior to everything. Ideally, the language is loaded based on the language preference. Even Chrome and Edge fail at this sometimes.
 
-But my system will always grab it. Adoption of language preference is broad at this point. 
+But my system will always grab it. Adoption of language preference is broad at this point.
 
 Plus, Google and Chrome would never conflict, they would just map over whatever strings exist at the time they are called. It's kind of complicated, but I think weglot is changing the dom, so the node numbers are out of order. In that case, Goolge can't map their strings onto the same page. It's too different. So they opt for not translating at all. My code never changes the dom. Google or Edge would work on top of it.
 
 What they knew when they wrote their translator is some clever person might figure out how to take all the translations directly off the page and map them onto the source. They had to conclude it's a worthwhile tradeoff. In other words, it's not a big deal to reverse engineer their translations.
- 
+
 But here's the kicker, the utlimate best solution would be for them to give the site owner the translations. Then the site owner could modify them if they like. A copy edit. Then the page loads the translation file that has been copy edited. For most sites who cares. But if you're talking billions or trillions that matters to you.
 
 That's what I've figured out: create a translate file if one doesn't exist, but if one does give it to the site owner. They can copy edit it if they like and load it with some simple js. I'm testing this with gemini.com. Just gonna do the main page. But in the end, the site owner ends up with a choice they didn't have before.
