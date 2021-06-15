@@ -1,25 +1,26 @@
 /* INCLUDE THIS BIT OF JS IN YOUR BASE FILE HEAD ELEMENT */
 const pn = window.location.pathname;
-
 const languages_available = [
-    'ur',
+    'ar',
+    'bn',
+    'cs',
+    'da',
     'de',
     'es',
     'fr',
-    'ru',
-    'pt',
-    'cs',
-    'ko',
-    'zh-tw',
-    'zh-cn',
-    'da',
-    'it',
-    'no',
-    'bn',
     'hi',
-    'ar',
+    'id',
+    'it',
+    'ja',
+    'ko',
     'nl',
+    'no',
+    'pt',
+    'ru',
+    'zh-CN',
+    'zh-TW',
 ]
+console.log(languages_available);
 function languageData() {
     var language = 'en'; // the default language
     const languages = window.navigator.userLanguages || window.navigator.languages; //returns list of languages
@@ -29,11 +30,11 @@ function languageData() {
             for (let i = 0; i < languages.length; i++) {
                 var this_lang = languages[i].toLowerCase();
                 // production note: if deploying account for all combinations like zh, zh-hk, zh-Hans, etc
-                if (this_lang == 'zh-cn') {
-                    language = 'zh-cn';
+                if (this_lang == 'zh-CN') {
+                    language = 'zh-CN';
                 }
-                else if (this_lang == 'zh-tw') {
-                    language = 'zh-tw';
+                else if (this_lang == 'zh-TW') {
+                    language = 'zh-TW';
                 }
                 else if (this_lang.match(/\-/)) {
                     // If there is a dash split the string so we can isolate the language code
@@ -69,6 +70,7 @@ function loadLanguage(language_pref, pn) {
     request.send();
     request.onload = function() {
         const translations = request.response[pn];
+        console.log(translations)
         if (translations === undefined){
             // console.log('no translation available');
             return
@@ -83,6 +85,7 @@ function loadLanguage(language_pref, pn) {
             while(currentNode = ni.nextNode()) {
                 try {
                     currentNode.textContent = translations[n];
+                    //console.log(translations[n]);
                 }
                 catch (error) {
                     continue
