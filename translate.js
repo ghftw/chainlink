@@ -17,10 +17,12 @@ const languages_available = [
     'no',
     'pt',
     'ru',
+    'te',
+    'tr',
     'zh-CN',
     'zh-TW',
 ]
-console.log(languages_available);
+
 function languageData() {
     var language = 'en'; // the default language
     const languages = window.navigator.userLanguages || window.navigator.languages; //returns list of languages
@@ -70,7 +72,6 @@ function loadLanguage(language_pref, pn) {
     request.send();
     request.onload = function() {
         const translations = request.response[pn];
-        console.log(translations)
         if (translations === undefined){
             // console.log('no translation available');
             return
@@ -85,7 +86,6 @@ function loadLanguage(language_pref, pn) {
             while(currentNode = ni.nextNode()) {
                 try {
                     currentNode.textContent = translations[n];
-                    //console.log(translations[n]);
                 }
                 catch (error) {
                     continue
