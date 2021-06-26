@@ -1,3 +1,31 @@
+last crawl time 6/23/21 6pm pst
+
+added telugu and turkish
+
+Notes: the api has gotten a little finicky... They returned the word Commains for an english to arabic translation.
+It's not a word in any language,so where did it come from?
+
+Because it looks like a word, it was probably ai generated (as opposed to any random set of characters like xrogfkjhalgi).
+I suppose it could be used as a key, an easy way to id sites living on the edge.
+Interestingly, it's in the roman latin alphabet, which means their ai system
+isn't sophisticated enough to plant words in any language/the target language.
+
+In any case, my translators are only 95% complete. While I wrote a quick verifier to check the translation
+is only in the correct language it is not well tested. But with a little work that could easily work around
+their shenanigans... until their ai system can write pseudo words in every language. lol.
+
+As for my oracle node, no problems running a node and a failover locally on testnets.
+
+Running one node locally on mainnet was not an issue, but getting a failover node up didn't work.
+
+I have a basic docker set up for now. When I have time I will test a failover node on aws, as my current assumption
+is that a combination of network configurations and account configurations is causing an error.
+
+Using aws with completely different config settings, but connected to the same database should work.
+
+Although, if the core chainlink code is checking for duplicate database settings and then wants another setting
+to match something it may not work.
+
 last crawl time 6/14/21 6 pm pst
 
 added japanese and indonesian.
